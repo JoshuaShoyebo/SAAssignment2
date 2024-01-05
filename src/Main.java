@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-    Competitor competitor1 = new Competitor(101, "John Doe", "USA", "Novice", 25, new int[]{4, 5, 3, 4, 5});
-    Competitor competitor2 = new Competitor(102, "Jane Smith", "UK", "Expert", 32, new int[]{5, 5, 5, 5, 5});
-    Competitor competitor3 = new Competitor(103, "Jane Doe", "USA", "Expert", 35, new int[]{5, 5, 5, 5, 5});
+        Competitor competitor1 = new Competitor(101, "Joshua", "Vine", "UK", "Expert", 34 , new int[]{6,8,10,12,14});
+        Competitor competitor2 = new Competitor(101, "John", "Doe", "UK", "Expert", 35 , new int[]{5,7,6,5,4});
+        Competitor competitor3 = new Competitor(101, "kelly", "love", "UK", "Expert", 32 , new int[]{5,5,5,6,7});
 
         System.out.println(competitor1.getFullDetails());
         System.out.println(competitor1.getShortDetails());

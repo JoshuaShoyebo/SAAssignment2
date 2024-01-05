@@ -9,7 +9,7 @@ public class Competitor {
     private int[] scores; // Array of integer scores
 
     // Constructor
-    public Competitor(int competitorNumber, String name, String country, String level, int age, int[] scores) {
+    public Competitor(int competitorNumber, String forename, String Surname, String country, String level, int age, int[] scores) {
         this.competitorNumber = competitorNumber;
         this.forename = forename;
         this.Surname = Surname;
@@ -30,7 +30,7 @@ public class Competitor {
     }
 
     public String getSurname() {
-        return getSurname();
+        return Surname;
     }
 
     public String getCountry() {
@@ -81,7 +81,7 @@ public class Competitor {
         StringBuilder details = new StringBuilder();
         details.append("Competitor number: ").append(competitorNumber).append("\n");
         details.append("ForeName: ").append(forename).append("\n");
-        details.append("Name: ").append(Surname).append("\n");
+        details.append("surname: ").append(Surname).append("\n");
         details.append("Country: ").append(country).append("\n");
         details.append("Level: ").append(level).append("\n");
         details.append("Age: ").append(age).append("\n");
@@ -89,7 +89,7 @@ public class Competitor {
     }
 
     public String getShortDetails() {
-        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + forename.substring(forename.lastIndexOf(" ") + 1)
+        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + Surname.substring(Surname.lastIndexOf(" ") + 1)
                 + ") has overall score " + getOverallScore();
     }
 
