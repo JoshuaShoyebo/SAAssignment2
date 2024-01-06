@@ -1,12 +1,14 @@
+import java.util.Arrays;
+
 public class Competitor {
 
     private int competitorNumber;
     private String forename;
     private String Surname;
     private String country;
-    private String level; // Adjust data type if needed
+    private String level;
     private int age;
-    private int[] scores; // Array of integer scores
+    private static int[] scores; // Array of integer scores
 
     // Constructor
     public Competitor(int competitorNumber, String forename, String Surname, String country, String level, int age, int[] scores) {
@@ -16,7 +18,7 @@ public class Competitor {
         this.country = country;
         this.level = level;
         this.age = age;
-        this.scores = scores;
+        this.scores = scores.clone(); // Clone array
     }
 
     // Getters and setters (omitted for brevity)
@@ -68,14 +70,14 @@ public class Competitor {
         this.age = age;
     }
 
+    // In the Competitor clas
+
+
     // Abstract method to be implemented in subclasses
-    public double getOverallScore() {
-        int totalScore = 0;
-        for (int score : scores) {
-            totalScore += score;
-        }
-        return totalScore;
+    public int getOverallScore() {
+        return 5;
     }
+
 
     public String getFullDetails() {
         StringBuilder details = new StringBuilder();
@@ -85,15 +87,23 @@ public class Competitor {
         details.append("Country: ").append(country).append("\n");
         details.append("Level: ").append(level).append("\n");
         details.append("Age: ").append(age).append("\n");
+        details.append("Scores: ").append(Arrays.toString(scores)).append("\n");
+
         return details.toString();
     }
 
     public String getShortDetails() {
-        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + Surname.substring(Surname.lastIndexOf(" ") + 1)
+        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + Surname.substring(Surname.lastIndexOf(" ") +1 )
                 + ") has overall score " + getOverallScore();
     }
 
-    public int[] getScoreArray() {
+    public static int[] getScoreArray() {
+        System.out.print("Scores: ");
+        for (int item : scores) {
+            System.out.print(item + " ,");
+        }
+        System.out.println();
         return scores;
     }
+
 }

@@ -17,7 +17,7 @@ public class Manager {
     public void readCompetitorsFromFiles() {
             try {
                 // Assuming a single CSV file for now
-                File file = new File("competitors.csv");
+                File file = new File("C:\\Users\\Joshua\\IdeaProjects\\SA2\\src\\RunCompetitor.csv");
                 Scanner scanner = new Scanner(file);
 
                 // Skip the header row (if present)
@@ -34,9 +34,9 @@ public class Manager {
                     int competitorNumber = Integer.parseInt(data[0]);
                     String forename = data[1];
                     String surname = data[2];
-                    String country = data[3];
+                    String country = data[5];
                     String level = data[4];
-                    int age = Integer.parseInt(data[5]);
+                    int age = Integer.parseInt(data[3]);
                     int[] scores = Arrays.stream(data[6].split(" ")).mapToInt(Integer::parseInt).toArray();
 
                     Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, age, scores);
@@ -81,8 +81,6 @@ public class Manager {
 
    
 
-    public static void main(String[] args) {
-        Manager manager = new Manager();
-        manager.readCompetitorsFromFiles();
+
     }
-}
+

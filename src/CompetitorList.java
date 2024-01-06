@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class CompetitorList {
 
@@ -25,8 +27,22 @@ public class CompetitorList {
 
     // Implement other methods as needed, such as:
     // - generateReport()
-    // - sortCompetitors()
-    // - filterCompetitors()
+    // In the CompetitorList class:
+    public void sortCompetitors(Comparator<Competitor> comparator, boolean b) {
+        competitors.sort(comparator); //  Java's built-in sorting
+    }
+
+    // In the CompetitorList class:
+    public ArrayList<Competitor> filterCompetitors(Predicate<Competitor> predicate) {
+        ArrayList<Competitor> filteredCompetitors = new ArrayList<>();
+        for (Competitor competitor : competitors) {
+            if (predicate.test(competitor)) {
+                filteredCompetitors.add(competitor);
+            }
+        }
+        return filteredCompetitors;
+    }
+
     // - removeCompetitor()
 }
 
