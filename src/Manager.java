@@ -17,7 +17,7 @@ public class Manager {
     }
 
     public void readCompetitorsFromFiles() {
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Joshua\\IdeaProjects\\SA2\\src\\RunCompetitor.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/RunCompetitor.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 // Split the line by comma (or any other delimiter based on the file format)
@@ -26,16 +26,17 @@ public class Manager {
                 int competitorNumber = Integer.parseInt(data[0]);
                 String forename = data[1];
                 String surname = data[2];
-                String country = data[5];
+                String country = data[6];
                 String level = data[4];
+                String Gender = data[5];
                 int age = Integer.parseInt(data[3]);
-                String[] scoreStrings = Arrays.copyOfRange(data, 6, 10);  // Assuming scores are separated by space
+                String[] scoreStrings = Arrays.copyOfRange(data, 7, 11);  // Assuming scores are separated by space
                 int[] scores = new int[scoreStrings.length];
                 for (int i = 0; i < scoreStrings.length; i++) {
                     scores[i] = Integer.parseInt(scoreStrings[i]);
                 }
                 // Create a new competitor object and add it to the competitor list
-                Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, age, scores);
+                Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, Gender, age, scores);
                 // Add the competitor to the competitor list
                 competitorList.addCompetitor(competitor);
             }
@@ -53,12 +54,14 @@ public class Manager {
 
             // Write header
             writer.write("This is Final Competitor Report\n");
-            writer.write("-----------------------\n");
+            writer.write("| Competitor Number  | Forename        | Surname        | Country  | Gender | Level | Age        | Average Score | Max Score | Min Score | Overall Score |\n");
+            writer.write("|--------------------|-----------------|----------------|----------|--------|-------|----------|---------------|---------| --------------|\n");
 
             // Write competitor details (adjust formatting as needed)
             for (Competitor competitor : competitorList.getCompetitors()) {
-                writer.write(competitor.getFullDetails() + "\n");
+                writer.write(competitor.getFullDetailsTable() + "\n");
             }
+
 
             writer.close();
             System.out.println("Final report generated successfully.");

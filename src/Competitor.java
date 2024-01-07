@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Comparator;
+
 
 public class Competitor {
 
@@ -7,16 +10,18 @@ public class Competitor {
     private String Surname;
     private String country;
     private String level;
+    private String Gender;
     private int age;
     private int[] scores; // Array of integer scores
 
     // Constructor
-    public Competitor(int competitorNumber, String forename, String Surname, String country, String level, int age, int[] scores) {
+    public Competitor(int competitorNumber, String forename, String Surname, String country, String level, String Gender, int age, int[] scores) {
         this.competitorNumber = competitorNumber;
         this.forename = forename;
         this.Surname = Surname;
         this.country = country;
         this.level = level;
+        this.Gender = Gender;
         this.age = age;
         this.scores = scores.clone(); // Clone array
     }
@@ -42,6 +47,9 @@ public class Competitor {
     public String getLevel() {
         return this.level;
     }
+    public String getGender() {
+        return this.Gender;
+    }
 
     public int getAge() {
         return this.age;
@@ -65,6 +73,9 @@ public class Competitor {
     public void setLevel(String level) {
         this.level = level;
     }
+    public void setGender(String Gender) {
+        this.Gender = Gender;
+    }
 
     public void setAge(int age) {
         this.age = age;
@@ -74,14 +85,30 @@ public class Competitor {
 
 
     // Abstract method to be implemented in subclasses
-    public int getOverallScore() {
+    public double getOverallScore() {
         double totalScore = 0;
         for (double score : scores) {
             totalScore += score;
         }
-        return (int) totalScore;
+        return (double) totalScore;
     }
 
+    public double getAverageScore() {
+        double totalScore = 0;
+        for (double score : scores) {
+            totalScore += score;
+        }
+        return (double) totalScore / scores.length;
+
+    }
+
+    public int getMinScore() {
+        return Arrays.stream(scores).min().orElse(0);
+    }
+
+    public int getMaxScore() {
+        return Arrays.stream(scores).max().orElse(0);
+    }
 
     public String getFullDetails() {
         StringBuilder details = new StringBuilder();
@@ -90,11 +117,21 @@ public class Competitor {
         details.append("surname: ").append(Surname).append("\n");
         details.append("Country: ").append(country).append("\n");
         details.append("Level: ").append(level).append("\n");
+        details.append("Gender: ").append(Gender).append("\n");
         details.append("Age: ").append(age).append("\n");
+        details.append("Average score: ").append(getAverageScore()).append("\n");
+        details.append("Max score: ").append(getMaxScore()).append("\n");
+        details.append("Min score: ").append(getMinScore()).append("\n");
         details.append("Overall score: ").append(getOverallScore()).append("\n");
         details.append("Scores: ").append(Arrays.toString(scores)).append("\n");
 
         return details.toString();
+    }
+
+    public String getFullDetailsTable(){
+        String details = String.format("| %-18s | %-14s | %-14s | %-9s | %-6s | %-6s | %-10d | %-10.2f | %-10d | %-10d | %-10.2f | ",
+                competitorNumber, forename, Surname, country, Gender, level, age, getAverageScore(), getMaxScore(), getMinScore(), getOverallScore());
+        return details;
     }
 
     public String getShortDetails() {
@@ -102,12 +139,14 @@ public class Competitor {
                 + ") has overall score " + getOverallScore();
     }
 
-    //public int[] getScoreArray() {
-  //      System.out.print("Scores: ");
-    //    for (int item :this.scores) {
-      //      System.out.print(item + " ,");
-        }
-     //   System.out.println();
-       // return this.scores;
+
+}
+//public int[] getScoreArray() {
+//      System.out.print("Scores: ");
+//    for (int item :this.scores) {
+//      System.out.print(item + " ,");
+//}
+//   System.out.println();
+// return this.scores;
 
 //}

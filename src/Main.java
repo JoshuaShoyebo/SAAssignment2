@@ -1,42 +1,43 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
-import java.util.Arrays;
-
-
-public class Main {
+class Main {
     public static void main(String[] args) {
-        Competitor competitor1 = new Competitor(101, "Joshua", "Vine", "UK", "Expert", 34, new int[]{6, 8, 10, 12});
-        Competitor competitor2 = new Competitor(102, "John", "Doe", "UK", "Expert", 35, new int[]{5, 7, 6, 6});
-        Competitor competitor3 = new Competitor(103, "Jane", "Doe", "UK", "Expert", 36, new int[]{4, 5, 6, 7});
+        Competitor competitor1 = new Competitor(101, "John", "Doe", "USA", "Novice", "Male", 25, new int[]{4, 5, 3, 4, 5});
+        Competitor competitor2 = new Competitor(102, "Jane", "Smith", "UK", "Expert","Female", 32, new int[]{5, 5, 5, 5, 5});
+
+//System.out.println(competitor1.getFullDetails());
+        //System.out.println(competitor1.getShortDetails());
+        //System.out.println("Overall score for competitor 1: " + //competitor1.getOverallScore());
+
+        //System.out.println(competitor2.getFullDetails());
+        //System.out.println(competitor2.getShortDetails());
+        //System.out.println("Overall score for competitor 2: " + //competitor2.getOverallScore());
 
 
-        System.out.println(competitor1.getFullDetails());
-        System.out.println(competitor1.getShortDetails());
-        System.out.println("Overall score for competitor 2: " + competitor1.getOverallScore());
+        Manager manager = new Manager();
+        Competitor competitor;
 
-        System.out.println(competitor2.getFullDetails());
-        System.out.println(competitor2.getShortDetails());
-        System.out.println("Overall score for competitor 2: " + competitor2.getOverallScore());
+        // Test reading competitors from CSV
+        manager.readCompetitorsFromFiles();
 
+        // Test generating a report
+        manager.generateFinalReportToFile();
 
+        Scanner scanner = new Scanner(System.in);
 
+        do{
+            System.out.print("Enter competitor number: ");
+            int competitorNumber = scanner.nextInt();
+            competitor = manager.searchCompetitorByNumber(competitorNumber);
 
-                Manager manager = new Manager();
+            if (competitor != null) {
+                System.out.println(competitor.getShortDetails());
+            } else {
+                System.out.println("Competitor not found.");
 
-                // Test reading competitors from CSV
-                manager.readCompetitorsFromFiles();
+            }
+        }while (competitor == null);
+    }
+}
 
-                // Test generating a report
-                manager.generateFinalReportToFile();
-
-                // Test filtering competitors (example)
-
-                }
-
-                // Test GUI (if implemented
-        }
-
-
-
-
-
+  

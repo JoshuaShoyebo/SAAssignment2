@@ -43,6 +43,7 @@ public class CompetitorList {
         return filteredCompetitors;
     }
 
+
     // - removeCompetitor()
 }
 

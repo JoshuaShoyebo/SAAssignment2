@@ -1,2 +1,23 @@
 This is Final Competitor Report
------------------------
+| Competitor Number  | Forename        | Surname        | Country  | Gender | Level | Age        | Average Score | Max Score | Min Score | Overall Score |
+|--------------------|-----------------|----------------|----------|--------|-------|----------|---------------|---------| --------------|
+| 100                | Ann            |  Sthen         | UK        | Female | Novice | 23         | 4.25       | 9          | 1          | 17.00      | 
+| 101                | George         |  Beth Shon     | UK        | Male   | Novice | 31         | 4.50       | 6          | 2          | 18.00      | 
+| 102                | Kaith          |  Andy Clos     | UK        | Female | Novice | 29         | 3.75       | 7          | 2          | 15.00      | 
+| 103                | Rinon          |  Grov          | US        | Male   | Novice | 25         | 3.50       | 7          | 1          | 14.00      | 
+| 104                | Mark           |  Do Leno       | UK        | Male   | Novice | 22         | 4.50       | 7          | 2          | 18.00      | 
+| 105                | Harry          |  Patrick       | UK        | Male   | Novice | 32         | 5.25       | 8          | 2          | 21.00      | 
+| 106                | Vicy           |  Mathew        | UK        | Male   | Novice | 33         | 5.50       | 9          | 2          | 22.00      | 
+| 107                | Monica         |  Loy           | US        | Female | Novice | 29         | 4.50       | 8          | 2          | 18.00      | 
+| 108                | Susan          |  Mathew        | US        | Female | Novice | 28         | 4.75       | 6          | 3          | 19.00      | 
+| 109                | Andy           |  Stov          | US        | Female | Novice | 22         | 5.75       | 9          | 2          | 23.00      | 
+| 110                | Mary           |  Francis       | UK        | Male   | Amateur | 27         | 7.00       | 9          | 6          | 28.00      | 
+| 111                | Jomon          |  Vicy          | UK        | Male   | Novice | 22         | 8.50       | 10         | 6          | 34.00      | 
+| 112                | Catherin       |  George        | UAE       | Male   | Expert | 20         | 2.75       | 4          | 1          | 11.00      | 
+| 113                | Aby            |  Mathew        | UK        | Male   | Amateur | 34         | 4.00       | 6          | 2          | 16.00      | 
+| 114                | Jojo           |  Mony          | UK        | Male   | Novice | 31         | 4.50       | 7          | 2          | 18.00      | 
+| 115                | Methen         |  George        | UK        | Male   | Expert | 30         | 6.50       | 8          | 4          | 26.00      | 
+| 116                | Scarlett       |  John          | UK        | Female | Novice | 25         | 4.50       | 6          | 3          | 18.00      | 
+| 117                | Patrick        |  Shanon        | US        | Male   | Amateur | 22         | 8.00       | 10         | 4          | 32.00      | 
+| 118                | Rod            |  Stod          | UK        | Novice | Male   | 26         | 5.00       | 9          | 2          | 20.00      | 
+| 119                | Lijo           |  Willams       | UK        | Male   | Expert | 28         | 5.25       | 8          | 2          | 21.00      | 
