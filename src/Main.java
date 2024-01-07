@@ -12,7 +12,7 @@ public class Main {
 
         System.out.println(competitor1.getFullDetails());
         System.out.println(competitor1.getShortDetails());
-        System.out.println(competitor1.getScoreArray());
+        System.out.println("Overall score for competitor 2: " + competitor1.getOverallScore());
 
         System.out.println(competitor2.getFullDetails());
         System.out.println(competitor2.getShortDetails());

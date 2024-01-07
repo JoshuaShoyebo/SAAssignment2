@@ -8,7 +8,7 @@ public class Competitor {
     private String country;
     private String level;
     private int age;
-    private static int[] scores; // Array of integer scores
+    private int[] scores; // Array of integer scores
 
     // Constructor
     public Competitor(int competitorNumber, String forename, String Surname, String country, String level, int age, int[] scores) {
@@ -28,23 +28,23 @@ public class Competitor {
     }
 
     public String getForename() {
-        return forename;
+        return this.forename;
     }
 
     public String getSurname() {
-        return Surname;
+        return this.Surname;
     }
 
     public String getCountry() {
-        return country;
+        return this.country;
     }
 
     public String getLevel() {
-        return level;
+        return this.level;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     // Setters
@@ -55,7 +55,7 @@ public class Competitor {
     public void setForename(String forename) {
         this.forename = forename;
     }
-    public void setSurname(String surname) {
+    public void setSurname(String Surname) {
         this.Surname = Surname;
     }
     public void setCountry(String country) {
@@ -75,7 +75,11 @@ public class Competitor {
 
     // Abstract method to be implemented in subclasses
     public int getOverallScore() {
-        return 5;
+        double totalScore = 0;
+        for (double score : scores) {
+            totalScore += score;
+        }
+        return (int) totalScore;
     }
 
 
@@ -87,6 +91,7 @@ public class Competitor {
         details.append("Country: ").append(country).append("\n");
         details.append("Level: ").append(level).append("\n");
         details.append("Age: ").append(age).append("\n");
+        details.append("Overall score: ").append(getOverallScore()).append("\n");
         details.append("Scores: ").append(Arrays.toString(scores)).append("\n");
 
         return details.toString();
@@ -97,13 +102,12 @@ public class Competitor {
                 + ") has overall score " + getOverallScore();
     }
 
-    public static int[] getScoreArray() {
-        System.out.print("Scores: ");
-        for (int item : scores) {
-            System.out.print(item + " ,");
+    //public int[] getScoreArray() {
+  //      System.out.print("Scores: ");
+    //    for (int item :this.scores) {
+      //      System.out.print(item + " ,");
         }
-        System.out.println();
-        return scores;
-    }
+     //   System.out.println();
+       // return this.scores;
 
-}
+//}
