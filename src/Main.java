@@ -93,7 +93,7 @@ public class Main {
                     editPanel.add(forenameField);
                     editPanel.add(new JLabel("Surname:"));
                     editPanel.add(surnameField);
-                    editPanel.add(new JLabel("Country:"));
+                    editPanel.add(new JLabel("Countries:"));
                     editPanel.add(countryField);
                     editPanel.add(new JLabel("Level:"));
                     editPanel.add(levelField);
