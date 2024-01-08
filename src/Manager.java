@@ -1,19 +1,32 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
+import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.io.FileReader;
-import java.io.BufferedReader;
 
 public class Manager {
 
     CompetitorList competitorList;
 
     public Manager() {
+
+
+
         competitorList = new CompetitorList();
+    }
+
+    public void openGUI() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    GUI gui = new GUI();
+                    gui.main(null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void readCompetitorsFromFiles() {
@@ -71,15 +84,36 @@ public class Manager {
         }
     }
 
-
+    static void saveCompetitorDetailsToFile(Competitor competitor) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("competitor_details.txt", true))) {
+            writer.write("Forename: " + competitor.getForename() + "\n");
+            writer.write("Surname: " + competitor.getSurname() + "\n");
+            writer.write("Country: " + competitor.getCountry() + "\n");
+            writer.write("Gender: " + competitor.getGender() + "\n");
+            writer.write("Level: " + competitor.getLevel() + "\n");
+            writer.write("Age: " + competitor.getAge() + "\n");
+            // Add more details as needed
+            writer.write("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Competitor searchCompetitorByNumber(int competitorNumber) {
         // Delegate search to CompetitorList
         return competitorList.searchCompetitorByNumber(competitorNumber);
     }
+        public static void main(String[] args) {
+            Manager manager = new Manager();
+            manager.openGUI();
+
+        }
+
+
+    }
 
 
 
 
-}
+
 

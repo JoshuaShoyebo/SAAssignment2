@@ -4,7 +4,7 @@ import java.util.function.Predicate;
 
 public class CompetitorList {
 
-    private ArrayList<Competitor> competitors;
+    private static ArrayList<Competitor> competitors;
 
     public CompetitorList() {
         competitors = new ArrayList<>();
@@ -12,7 +12,7 @@ public class CompetitorList {
     public ArrayList<Competitor> getCompetitors() {
         return competitors; // Returns a reference to the internal list
     }
-    public void addCompetitor(Competitor competitor) {
+    public static void addCompetitor(Competitor competitor) {
         competitors.add(competitor);
     }
 

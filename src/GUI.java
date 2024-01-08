@@ -1,21 +1,16 @@
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 public class GUI {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Manager manager = new Manager();
         manager.readCompetitorsFromFiles();
         JFrame frame = new JFrame("Competitor Management System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 150);
+        frame.setSize(500, 250);
         JPanel panel1 = new JPanel();
         JLabel label1 = new JLabel("Competitor Number:");
         JTextField competitorNumberField = new JTextField(10);
@@ -34,8 +29,10 @@ public class GUI {
         JPanel panel3 = new JPanel();
         JButton editDetailsButton = new JButton("Edit Details");
         JButton removeCompetitorButton = new JButton("Remove Competitor");
+        JButton addCompetitorButton = new JButton("Add Competitor");
         panel3.add(editDetailsButton);
         panel3.add(removeCompetitorButton);
+        panel3.add(addCompetitorButton);
         frame.add(panel1, "North");
         frame.add(panel2, "Center");
         frame.add(panel3, "South");
@@ -108,26 +105,34 @@ public class GUI {
                 }
             }
         });
-        removeCompetitorButton.addActionListener(new ActionListener() {
+
+        addCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Inside the editDetailsButton ActionListener
-                editDetailsButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        int number = Integer.parseInt(competitorNumberField.getText());
-                        Competitor competitor = manager.searchCompetitorByNumber(number);
-                        if (competitor != null) {
-                            ArrayList<Object[]> data = new ArrayList<Object[]>();
-                            Object[] details = {competitor.getCompetitorNumber(), competitor.getForename(), competitor.getSurname(), competitor.getCountry(), competitor.getGender(), competitor.getLevel(), competitor.getAge()};
-                            data.add(details);
-                            String[] columns = {"Competitor Number", "Forename", "Surname", "Country", "Gender", "Level", "Age"};
-                            DefaultTableModel model = new DefaultTableModel(data.toArray(new Object[0][0]), columns);
-                            table.setModel(model);
-                        }
-                    }
-                });
-                // Code to handle removing a competitor
+                // Add code to get competitor details from user input
+                int Competitornummber = Integer.parseInt(JOptionPane.showInputDialog("Enter Competitor Number:"));
+                String forename = JOptionPane.showInputDialog("Enter forename:");
+                String surname = JOptionPane.showInputDialog("Enter surname:");
+                String country = JOptionPane.showInputDialog("Enter country:");
+                String level = JOptionPane.showInputDialog("Enter Level:");
+                String Gender = JOptionPane.showInputDialog("Enter Gender:");
+                int age = Integer.parseInt(JOptionPane.showInputDialog("Enter Age:"));
+                int[] scores = new int[4];
+                for (int i = 0; i < 4; i++) {
+                    scores[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter score " + (i + 1) + ":"));
+                }
+                // Add more fields as needed
+                // Create new competitor
+                Competitor newCompetitor = new Competitor(Competitornummber,forename, surname, country, level, Gender, age, scores);
+
+                // Add new competitor to manager
+                CompetitorList.addCompetitor(newCompetitor);
+                // Save competitor details to a text file
+                Manager.saveCompetitorDetailsToFile(newCompetitor);
             }
         });
         frame.setVisible(true);
     }
-}
+
+
+
+    }
