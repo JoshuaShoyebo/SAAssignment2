@@ -139,9 +139,8 @@ public class GUI {
 
                             competitor.setScores(updatedScores);
 
-                            // Add any additional code for saving the changes if needed
 
-                            // Close the edit frame
+
                             editFrame.dispose();
 
                         }
@@ -152,15 +151,15 @@ public class GUI {
 
         viewNovCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Clear existing data in the table
+
                 tableModel.setRowCount(0);
 
-                // Get the list of competitors from the manager
+
                 ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
 
-                // Iterate through the list and add details to the table
+
                 for (Competitor competitor : competitors) {
-                    // Check if the competitor is an expert
+
                     if ("Novice".equals(competitor.getLevel())) {
                         Object[] rowData = {
                                 competitor.getCompetitorNumber(),
@@ -180,22 +179,20 @@ public class GUI {
                 }
 
                 for (int i = 0; i < table.getColumnCount(); i++) {
-                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150);
                 }
             }
         });
 
         viewAmCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Clear existing data in the table
+
                 tableModel.setRowCount(0);
 
-                // Get the list of competitors from the manager
                 ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
 
-                // Iterate through the list and add details to the table
                 for (Competitor competitor : competitors) {
-                    // Check if the competitor is an expert
+
                     if ("Amateur".equals(competitor.getLevel())) {
                         Object[] rowData = {
                                 competitor.getCompetitorNumber(),
@@ -215,21 +212,21 @@ public class GUI {
                 }
 
                 for (int i = 0; i < table.getColumnCount(); i++) {
-                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150);
                 }
             }
         });
         viewExCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Clear existing data in the table
+
                 tableModel.setRowCount(0);
 
-                // Get the list of competitors from the manager
+
                 ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
 
-                // Iterate through the list and add details to the table
+
                 for (Competitor competitor : competitors) {
-                    // Check if the competitor is an expert
+
                     if ("Expert".equals(competitor.getLevel())) {
                         Object[] rowData = {
                                 competitor.getCompetitorNumber(),
@@ -249,7 +246,7 @@ public class GUI {
                 }
 
                 for (int i = 0; i < table.getColumnCount(); i++) {
-                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150);
                 }
             }
         });
@@ -263,8 +260,7 @@ public class GUI {
 
                     int competitorNumber = (int) table.getValueAt(selectedRowIndex, 0);
 
-                    // Remove the competitor from your data source (e.g., ArrayList)
-                    manager.removeCompetitor(competitorNumber);  // You need to implement this method in your Manager class
+                    manager.removeCompetitor(competitorNumber);
 
                     // Remove the selected row from the DefaultTableModel
                     DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -281,10 +277,10 @@ public class GUI {
                 // Clear existing data in the table
                 tableModel.setRowCount(0);
 
-                // Get the list of competitors from the manager
+
                 ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
 
-                // Iterate through the list and add details to the table
+
                 for (Competitor competitor : competitors) {
                     Object[] rowData = {
                             competitor.getCompetitorNumber(),
@@ -302,14 +298,14 @@ public class GUI {
                     tableModel.addRow(rowData);
                 }
                 for (int i = 0; i < table.getColumnCount(); i++) {
-                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150);
                 }
             }
         });
 
         addCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Add code to get competitor details from user input
+
                 int Competitornummber = Integer.parseInt(JOptionPane.showInputDialog("Enter Competitor Number:"));
                 String forename = JOptionPane.showInputDialog("Enter forename:");
                 String surname = JOptionPane.showInputDialog("Enter surname:");
@@ -321,8 +317,7 @@ public class GUI {
                 for (int i = 0; i < 4; i++) {
                     scores[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter score " + (i + 1) + ":"));
                 }
-                // Add more fields as needed
-                // Create new competitor
+
                 Competitor newCompetitor = new Competitor(Competitornummber,forename, surname, country, level, Gender, age, scores);
 
 

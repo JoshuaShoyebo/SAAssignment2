@@ -89,10 +89,7 @@ public  class Competitor {
         this.scores = scores.clone();
     }
 
-    // In the Competitor clas
 
-
-    // Abstract method to be implemented in subclasses
     public double getOverallScore() {
         double totalScore = 0;
         for (double score : scores) {
