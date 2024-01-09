@@ -318,7 +318,17 @@ public class GUI {
                     scores[i] = Integer.parseInt(JOptionPane.showInputDialog("Enter score " + (i + 1) + ":"));
                 }
 
-                Competitor newCompetitor = new Competitor(Competitornummber,forename, surname, country, level, Gender, age, scores);
+                Competitor newCompetitor = new Competitor(Competitornummber, forename, surname, country, level, Gender, age, scores) {
+                    @Override
+                    public String getFullDetailss() {
+                        return null;
+                    }
+
+                    @Override
+                    public String getShortDetailss() {
+                        return null;
+                    }
+                };
 
 
                 CompetitorList.addCompetitor(newCompetitor);

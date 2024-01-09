@@ -286,3 +286,8 @@ Max score: 10
 Min score: 6
 Overall score: 34.0
 Scores: [6, 9, 10, 9]
+
+Total Overall Score for all Competitor is : 409.0
+Total Minimum Score for all Competitor is : 11.0
+Total Maximum Score for all Competitor is : 34.0
+Total Average Score for all Competitor is : 20.45

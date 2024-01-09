@@ -64,7 +64,17 @@ public class Manager {
                     scores[i] = Integer.parseInt(scoreStrings[i]);
                 }
 
-                Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, Gender, age, scores);
+                Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, Gender, age, scores) {
+                    @Override
+                    public String getFullDetailss() {
+                        return null;
+                    }
+
+                    @Override
+                    public String getShortDetailss() {
+                        return null;
+                    }
+                };
 
                 competitorList.addCompetitor(competitor);
             }
@@ -114,6 +124,16 @@ public class Manager {
 
             writer.write("Competitor with the highest score:");
             writer.write(highestScoreCompetitor.getFullDetails());
+
+            writer.write("\n");
+            writer.write("Total Overall Score for all Competitor is : " + competitorList.getSumOfOverallScores());
+            writer.write("\n");
+            writer.write("Total Minimum Score for all Competitor is : " + competitorList.getMinimumOverallScore());
+            writer.write("\n");
+            writer.write("Total Maximum Score for all Competitor is : " + competitorList.getMaximumOverallScore());
+            writer.write("\n");
+            writer.write("Total Average Score for all Competitor is : " + competitorList.getAverageOverallScore());
+
 
 
             writer.close();

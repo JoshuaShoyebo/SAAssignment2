@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public  class Competitor {
+public abstract class Competitor {
 
     private int competitorNumber;
     private String forename;
@@ -26,8 +26,8 @@ public  class Competitor {
         this.scores = scores.clone(); // Clone array
     }
 
-    // Getters and setters (omitted for brevity)
-    // Getters
+    // Getters and setters
+
     public int getCompetitorNumber() {
         return competitorNumber;
     }
@@ -133,10 +133,8 @@ public  class Competitor {
         return details.toString();
     }
 
-    public String getFullDetailss() {
-
-        return null;
-    }
+    public abstract String getFullDetailss();
+    public abstract String getShortDetailss();
 
     ;
 

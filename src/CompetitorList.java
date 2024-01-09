@@ -26,15 +26,57 @@ public class CompetitorList {
     }
 
 
+    public static double getSumOfOverallScores() {
+        double sum = 0;
+        for (Competitor competitor : competitors) {
+            sum += competitor.getOverallScore();
+        }
+        return sum;
+    }
 
-    // Implement other methods as needed, such as:
-    // - generateReport()
-    // In the CompetitorList class:
+    public static double getMinimumOverallScore() {
+        if (competitors.isEmpty()) {
+            return 0;
+        }
+
+        double minScore = competitors.get(0).getOverallScore();
+        for (Competitor competitor : competitors) {
+            minScore = Math.min(minScore, competitor.getOverallScore());
+        }
+        return minScore;
+    }
+
+    // Method to get the maximum overall score for all competitors
+    public static double getMaximumOverallScore() {
+        if (competitors.isEmpty()) {
+            return 0;
+        }
+
+        double maxScore = competitors.get(0).getOverallScore();
+        for (Competitor competitor : competitors) {
+            maxScore = Math.max(maxScore, competitor.getOverallScore());
+        }
+        return maxScore;
+    }
+
+    // Method to get the average overall score for all competitors
+    public static double getAverageOverallScore() {
+        if (competitors.isEmpty()) {
+            return 0;
+        }
+
+        double sum = 0;
+        for (Competitor competitor : competitors) {
+            sum += competitor.getOverallScore();
+        }
+        return sum / competitors.size();
+    }
+
     public void sortCompetitors(Comparator<Competitor> comparator, boolean b) {
         competitors.sort(comparator); //  Java's built-in sorting
     }
 
-    // In the CompetitorList class:
+
     public ArrayList<Competitor> filterCompetitors(Predicate<Competitor> predicate) {
         ArrayList<Competitor> filteredCompetitors = new ArrayList<>();
         for (Competitor competitor : competitors) {
@@ -46,6 +88,6 @@ public class CompetitorList {
     }
 
 
-    // - removeCompetitor()
+
 }
 

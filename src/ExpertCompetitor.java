@@ -1,15 +1,25 @@
 import java.util.Arrays;
 
 public class ExpertCompetitor extends Competitor {
-    private String expertiseField;
+    private String Field;
 
-    public ExpertCompetitor(int competitorNumber, String forename, String Surname, String country, String Gender, int age, int[] scores) {
+    public ExpertCompetitor(int competitorNumber, String forename, String Surname, String country, String Gender, int age, int[] scores, String Field) {
         super(competitorNumber, forename, Surname, country, "Expert", Gender, age, scores);
+        this.Field = Field;
     }
+    public String getField() {
+        return Field;}
 
+    public void setField() {
+        this.Field = Field;
+    }
     @Override
     public double getOverallScore() {
-        return 0;
+        int[] scores = getScores();        int sum = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum += scores[i];
+        }
+        return (double) sum / scores.length;
     }
 
     public String getFullDetailss() {
@@ -21,15 +31,14 @@ public class ExpertCompetitor extends Competitor {
         details.append("Level: ").append(getLevel()).append("\n");
         details.append("Gender: ").append(getGender()).append("\n");
         details.append("Age: ").append(getAge()).append("\n");
-        details.append("Average score: ").append(getAverageScore()).append("\n");
-        details.append("Max score: ").append(getMaxScore()).append("\n");
-        details.append("Min score: ").append(getMinScore()).append("\n");
+        details.append("Field: ").append(Field).append("\n");
         details.append("Overall score: ").append(getOverallScore()).append("\n");
-        return null;
+        return details.toString();
     }
-    public String getShortDetails() {
-        // Provide specific implementation
-        return null;
+    public String getShortDetailss() {
+        return "CN " + getCompetitorNumber() + " (" + getForename().substring(0, 1) + getSurname().substring(getSurname().lastIndexOf(" ") + 1)
+                + ") has overall score " + getOverallScore() + "and is in the field of " + Field;
+
     }
 
 
