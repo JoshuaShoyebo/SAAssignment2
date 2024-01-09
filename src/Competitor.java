@@ -151,6 +151,28 @@ public abstract class Competitor {
 
     public int[] getScores() {
         return Arrays.copyOf(scores, scores.length);
+
+    }
+
+    public double getAverageScoreWithoutExtremes() {
+        if (scores.length < 3) {
+            return getAverageScore(); // Not enough scores to disregard extremes
+        }
+
+        int sum = 0;
+        int minScore = scores[0];
+        int maxScore = scores[0];
+
+        // Find the minimum and maximum scores
+        for (int score : scores) {
+            sum += score;
+            minScore = Math.min(minScore, score);
+            maxScore = Math.max(maxScore, score);
+        }
+
+        // Subtract the minimum and maximum scores and calculate the average
+        sum -= (minScore + maxScore);
+        return (double) sum / (scores.length - 2);
     }
     public int[] getScoreArray() {
         System.out.print("Scores: ");

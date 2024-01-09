@@ -72,6 +72,8 @@ public class CompetitorList {
         return sum / competitors.size();
     }
 
+
+
     public void sortCompetitors(Comparator<Competitor> comparator, boolean b) {
         competitors.sort(comparator); //  Java's built-in sorting
     }
