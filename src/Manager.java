@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Manager {
 
@@ -40,22 +37,11 @@ public class Manager {
                 break;
             }
         }
-        // Update code to save the updated list of competitors to the file if needed
+
     }
 
     public void printCompetitorWithHighestScore() {
-        if (CompetitorList.getCompetitors().isEmpty()) {
-            System.out.println("No competitors available.");
-            return;
-        }
 
-        // Find the competitor with the highest score using a Comparator
-        Competitor highestScoreCompetitor = CompetitorList.getCompetitors().stream()
-                .max(Comparator.comparingDouble(Competitor::getOverallScore))
-                .orElse(null);
-
-        System.out.println("Competitor with the highest score:");
-        System.out.println(highestScoreCompetitor.getFullDetails());
     }
 
     public void readCompetitorsFromFiles() {
@@ -103,8 +89,31 @@ public class Manager {
             for (Competitor competitor : competitorList.getCompetitors()) {
                 writer.write(competitor.getFullDetails() + "\n");
 
+            }
+
+            writer.write("\nFrequency Report - Scores awarded:\n");
+            Map<Integer, Integer> scoreFrequency = new HashMap<>();
+            for (Competitor c : competitorList.getCompetitors()) {
+                for (int score : c.getScores()) {
+                    scoreFrequency.put(score, scoreFrequency.getOrDefault(score, 0) + 1);
+                }
 
             }
+            for (Map.Entry<Integer, Integer> entry : scoreFrequency.entrySet()) {
+                writer.write("Score " + entry.getKey() + " awarded " + entry.getValue() + " time(s)\n");
+            }
+            writer.write("\n");
+            if (CompetitorList.getCompetitors().isEmpty()) {
+                writer.write("No competitors available.");
+                return;
+            }
+
+            Competitor highestScoreCompetitor = CompetitorList.getCompetitors().stream()
+                    .max(Comparator.comparingDouble(Competitor::getOverallScore))
+                    .orElse(null );
+
+            writer.write("Competitor with the highest score:");
+            writer.write(highestScoreCompetitor.getFullDetails());
 
 
             writer.close();

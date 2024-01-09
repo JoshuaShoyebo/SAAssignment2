@@ -261,3 +261,28 @@ Min score: 2
 Overall score: 21.0
 Scores: [6, 2, 5, 8]
 
+
+Frequency Report - Scores awarded:
+Score 1 awarded 4 time(s)
+Score 2 awarded 14 time(s)
+Score 3 awarded 4 time(s)
+Score 4 awarded 10 time(s)
+Score 5 awarded 13 time(s)
+Score 6 awarded 13 time(s)
+Score 7 awarded 7 time(s)
+Score 8 awarded 4 time(s)
+Score 9 awarded 9 time(s)
+Score 10 awarded 2 time(s)
+
+Competitor with the highest score:Competitor number: 111
+ForeName: Jomon
+surname:  Vicy
+Country: UK
+Level: Novice
+Gender: Male
+Age: 22
+Average score: 8.5
+Max score: 10
+Min score: 6
+Overall score: 34.0
+Scores: [6, 9, 10, 9]

@@ -47,6 +47,7 @@ public  class Competitor {
     public String getLevel() {
         return this.level;
     }
+
     public String getGender() {
         return this.Gender;
     }
@@ -63,9 +64,11 @@ public  class Competitor {
     public void setForename(String forename) {
         this.forename = forename;
     }
+
     public void setSurname(String Surname) {
         this.Surname = Surname;
     }
+
     public void setCountry(String country) {
         this.country = country;
     }
@@ -73,6 +76,7 @@ public  class Competitor {
     public void setLevel(String level) {
         this.level = level;
     }
+
     public void setGender(String Gender) {
         this.Gender = Gender;
     }
@@ -127,30 +131,35 @@ public  class Competitor {
 
         return details.toString();
     }
-    public  String getFullDetailss(){
+
+    public String getFullDetailss() {
 
         return null;
-    } ;
+    }
 
-    public String getFullDetailsTable(){
+    ;
+
+    public String getFullDetailsTable() {
         String details = String.format("| %-18s | %-14s | %-14s | %-9s | %-6s | %-6s | %-10d | %-10.2f | %-10d | %-10d | %-10.2f | ",
                 competitorNumber, forename, Surname, country, Gender, level, age, getAverageScore(), getMaxScore(), getMinScore(), getOverallScore());
         return details;
     }
 
     public String getShortDetails() {
-        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + Surname.substring(Surname.lastIndexOf(" ") +1 )
+        return "CN " + competitorNumber + " (" + forename.substring(0, 1) + Surname.substring(Surname.lastIndexOf(" ") + 1)
                 + ") has overall score " + getOverallScore();
     }
 
+    public int[] getScores() {
+        return Arrays.copyOf(scores, scores.length);
+    }
+    public int[] getScoreArray() {
+        System.out.print("Scores: ");
+        for (int item : this.scores) {
+            System.out.print(item + " ,");
+        }
+        System.out.println();
+        return this.scores;
 
+    }
 }
-//public int[] getScoreArray() {
-//      System.out.print("Scores: ");
-//    for (int item :this.scores) {
-//      System.out.print(item + " ,");
-//}
-//   System.out.println();
-// return this.scores;
-
-//}

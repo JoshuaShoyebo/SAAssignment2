@@ -21,7 +21,7 @@ class Main {
         // Test reading competitors from CSV
         manager.readCompetitorsFromFiles();
 
-        manager.printCompetitorWithHighestScore();
+
 
         // Test generating a report
         manager.generateFinalReportToFile();
