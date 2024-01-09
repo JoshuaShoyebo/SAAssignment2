@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 
-public class Competitor {
+public  class Competitor {
 
     private int competitorNumber;
     private String forename;
@@ -127,6 +127,10 @@ public class Competitor {
 
         return details.toString();
     }
+    public  String getFullDetailss(){
+
+        return null;
+    } ;
 
     public String getFullDetailsTable(){
         String details = String.format("| %-18s | %-14s | %-14s | %-9s | %-6s | %-6s | %-10d | %-10.2f | %-10d | %-10d | %-10.2f | ",

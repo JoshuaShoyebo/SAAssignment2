@@ -9,7 +9,7 @@ public class CompetitorList {
     public CompetitorList() {
         competitors = new ArrayList<>();
     }
-    public ArrayList<Competitor> getCompetitors() {
+    public static ArrayList<Competitor> getCompetitors() {
         return competitors; // Returns a reference to the internal list
     }
     public static void addCompetitor(Competitor competitor) {
@@ -24,6 +24,8 @@ public class CompetitorList {
         }
         return null;
     }
+
+
 
     // Implement other methods as needed, such as:
     // - generateReport()

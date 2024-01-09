@@ -10,16 +10,16 @@ public class GUI {
         manager.readCompetitorsFromFiles();
         JFrame frame = new JFrame("Competitor Management System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 250);
+        frame.setSize(650, 250);
         JPanel panel1 = new JPanel();
         JLabel label1 = new JLabel("Competitor Number:");
-        JTextField competitorNumberField = new JTextField(10);
+        JTextField competitorNumberField = new JTextField(5);
         JButton viewDetailsButton = new JButton("View Details");
         panel1.add(label1);
         panel1.add(competitorNumberField);
         panel1.add(viewDetailsButton);
         JPanel panel2 = new JPanel();
-        String[] columnNames = {"Welcome to the Competitor Management System please follow the instructions below:"};
+        String[] columnNames = {"CN:","Forename", "Surname", "Country", "Gender", "Level", "Age","Min", "Max","Overall","Avg"};
         DefaultTableModel tableModel = new DefaultTableModel();
         tableModel.setColumnIdentifiers(columnNames);
         JTable table = new JTable();
@@ -30,9 +30,19 @@ public class GUI {
         JButton editDetailsButton = new JButton("Edit Details");
         JButton removeCompetitorButton = new JButton("Remove Competitor");
         JButton addCompetitorButton = new JButton("Add Competitor");
+        JButton viewCompetitorButton = new JButton("View All Competitors");
+        JButton viewNovCompetitorButton = new JButton("View Novices");
+        JButton viewAmCompetitorButton = new JButton("View Amateurs");
+        JButton viewExCompetitorButton = new JButton("View Experts");
+
         panel3.add(editDetailsButton);
         panel3.add(removeCompetitorButton);
         panel3.add(addCompetitorButton);
+        panel3.add(viewCompetitorButton);
+        panel3.add(viewNovCompetitorButton);
+        panel3.add(viewAmCompetitorButton);
+        panel3.add(viewExCompetitorButton);
+
         frame.add(panel1, "North");
         frame.add(panel2, "Center");
         frame.add(panel3, "South");
@@ -70,6 +80,7 @@ public class GUI {
         });
         editDetailsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                JButton saveButton = new JButton("Save");
                 int number = Integer.parseInt(competitorNumberField.getText());
                 Competitor competitor = manager.searchCompetitorByNumber(number);
                 if (competitor != null) {
@@ -98,10 +109,168 @@ public class GUI {
                     editPanel.add(genderField);
                     editPanel.add(new JLabel("Age:"));
                     editPanel.add(ageField);
+                    editPanel.add(saveButton);
                     JFrame editFrame = new JFrame("Edit Competitor Details");
                     editFrame.add(editPanel);
                     editFrame.pack();
                     editFrame.setVisible(true);
+                }
+            }
+        });
+
+        viewNovCompetitorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Clear existing data in the table
+                tableModel.setRowCount(0);
+
+                // Get the list of competitors from the manager
+                ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
+
+                // Iterate through the list and add details to the table
+                for (Competitor competitor : competitors) {
+                    // Check if the competitor is an expert
+                    if ("Novice".equals(competitor.getLevel())) {
+                        Object[] rowData = {
+                                competitor.getCompetitorNumber(),
+                                competitor.getForename(),
+                                competitor.getSurname(),
+                                competitor.getCountry(),
+                                competitor.getGender(),
+                                competitor.getLevel(),
+                                competitor.getAge(),
+                                competitor.getMinScore(),
+                                competitor.getMaxScore(),
+                                competitor.getOverallScore(),
+                                competitor.getAverageScore()
+                        };
+                        tableModel.addRow(rowData);
+                    }
+                }
+
+                for (int i = 0; i < table.getColumnCount(); i++) {
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                }
+            }
+        });
+
+        viewAmCompetitorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Clear existing data in the table
+                tableModel.setRowCount(0);
+
+                // Get the list of competitors from the manager
+                ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
+
+                // Iterate through the list and add details to the table
+                for (Competitor competitor : competitors) {
+                    // Check if the competitor is an expert
+                    if ("Amateur".equals(competitor.getLevel())) {
+                        Object[] rowData = {
+                                competitor.getCompetitorNumber(),
+                                competitor.getForename(),
+                                competitor.getSurname(),
+                                competitor.getCountry(),
+                                competitor.getGender(),
+                                competitor.getLevel(),
+                                competitor.getAge(),
+                                competitor.getMinScore(),
+                                competitor.getMaxScore(),
+                                competitor.getOverallScore(),
+                                competitor.getAverageScore()
+                        };
+                        tableModel.addRow(rowData);
+                    }
+                }
+
+                for (int i = 0; i < table.getColumnCount(); i++) {
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                }
+            }
+        });
+        viewExCompetitorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Clear existing data in the table
+                tableModel.setRowCount(0);
+
+                // Get the list of competitors from the manager
+                ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
+
+                // Iterate through the list and add details to the table
+                for (Competitor competitor : competitors) {
+                    // Check if the competitor is an expert
+                    if ("Expert".equals(competitor.getLevel())) {
+                        Object[] rowData = {
+                                competitor.getCompetitorNumber(),
+                                competitor.getForename(),
+                                competitor.getSurname(),
+                                competitor.getCountry(),
+                                competitor.getGender(),
+                                competitor.getLevel(),
+                                competitor.getAge(),
+                                competitor.getMinScore(),
+                                competitor.getMaxScore(),
+                                competitor.getOverallScore(),
+                                competitor.getAverageScore()
+                        };
+                        tableModel.addRow(rowData);
+                    }
+                }
+
+                for (int i = 0; i < table.getColumnCount(); i++) {
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
+                }
+            }
+        });
+        removeCompetitorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected row index
+                int selectedRowIndex = table.getSelectedRow();
+
+                // Ensure a row is selected
+                if (selectedRowIndex != -1) {
+                    // Get the competitor number from the selected row
+                    int competitorNumber = (int) table.getValueAt(selectedRowIndex, 0);
+
+                    // Remove the competitor from your data source (e.g., ArrayList)
+                    manager.removeCompetitor(competitorNumber);  // You need to implement this method in your Manager class
+
+                    // Remove the selected row from the DefaultTableModel
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    model.removeRow(selectedRowIndex);
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Please select a row to remove.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+
+        viewCompetitorButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Clear existing data in the table
+                tableModel.setRowCount(0);
+
+                // Get the list of competitors from the manager
+                ArrayList<Competitor> competitors = CompetitorList.getCompetitors();
+
+                // Iterate through the list and add details to the table
+                for (Competitor competitor : competitors) {
+                    Object[] rowData = {
+                            competitor.getCompetitorNumber(),
+                            competitor.getForename(),
+                            competitor.getSurname(),
+                            competitor.getCountry(),
+                            competitor.getGender(),
+                            competitor.getLevel(),
+                            competitor.getAge(),
+                            competitor.getMinScore(),
+                            competitor.getMaxScore(),
+                            competitor.getOverallScore(),
+                            competitor.getAverageScore()
+                    };
+                    tableModel.addRow(rowData);
+                }
+                for (int i = 0; i < table.getColumnCount(); i++) {
+                    table.getColumnModel().getColumn(i).setPreferredWidth(150); // Set your preferred width
                 }
             }
         });

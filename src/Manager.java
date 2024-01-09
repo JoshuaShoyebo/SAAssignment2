@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Manager {
@@ -29,13 +30,41 @@ public class Manager {
         });
     }
 
+
+    // Inside your Manager class
+    public void removeCompetitor(int competitorNumber) {
+
+        for (Competitor competitor : CompetitorList.getCompetitors()) {
+            if (competitor.getCompetitorNumber() == competitorNumber) {
+                CompetitorList.getCompetitors().remove(competitor);
+                break;
+            }
+        }
+        // Update code to save the updated list of competitors to the file if needed
+    }
+
+    public void printCompetitorWithHighestScore() {
+        if (CompetitorList.getCompetitors().isEmpty()) {
+            System.out.println("No competitors available.");
+            return;
+        }
+
+        // Find the competitor with the highest score using a Comparator
+        Competitor highestScoreCompetitor = CompetitorList.getCompetitors().stream()
+                .max(Comparator.comparingDouble(Competitor::getOverallScore))
+                .orElse(null);
+
+        System.out.println("Competitor with the highest score:");
+        System.out.println(highestScoreCompetitor.getFullDetails());
+    }
+
     public void readCompetitorsFromFiles() {
         try (BufferedReader br = new BufferedReader(new FileReader("src/RunCompetitor.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // Split the line by comma (or any other delimiter based on the file format)
+
                 String[] data = line.split(",");
-                // The data array will now contain all the values from the CSV file for each line
+
                 int competitorNumber = Integer.parseInt(data[0]);
                 String forename = data[1];
                 String surname = data[2];
@@ -43,14 +72,14 @@ public class Manager {
                 String level = data[4];
                 String Gender = data[5];
                 int age = Integer.parseInt(data[3]);
-                String[] scoreStrings = Arrays.copyOfRange(data, 7, 11);  // Assuming scores are separated by space
+                String[] scoreStrings = Arrays.copyOfRange(data, 7, 11);
                 int[] scores = new int[scoreStrings.length];
                 for (int i = 0; i < scoreStrings.length; i++) {
                     scores[i] = Integer.parseInt(scoreStrings[i]);
                 }
-                // Create a new competitor object and add it to the competitor list
+
                 Competitor competitor = new Competitor(competitorNumber, forename, surname, country, level, Gender, age, scores);
-                // Add the competitor to the competitor list
+
                 competitorList.addCompetitor(competitor);
             }
         } catch (IOException e) {
@@ -58,7 +87,7 @@ public class Manager {
         }
     }
 
-    // Use appropriate methods from CompetitorList to add competitors
+
 
 
     public void generateFinalReportToFile() {
@@ -70,9 +99,11 @@ public class Manager {
             writer.write("| Competitor Number  | Forename        | Surname        | Country  | Gender | Level | Age        | Average Score | Max Score | Min Score | Overall Score |\n");
             writer.write("|--------------------|-----------------|----------------|----------|--------|-------|----------|---------------|---------| --------------|\n");
 
-            // Write competitor details (adjust formatting as needed)
+
             for (Competitor competitor : competitorList.getCompetitors()) {
-                writer.write(competitor.getFullDetailsTable() + "\n");
+                writer.write(competitor.getFullDetails() + "\n");
+
+
             }
 
 
@@ -92,7 +123,7 @@ public class Manager {
             writer.write("Gender: " + competitor.getGender() + "\n");
             writer.write("Level: " + competitor.getLevel() + "\n");
             writer.write("Age: " + competitor.getAge() + "\n");
-            // Add more details as needed
+
             writer.write("\n");
         } catch (IOException e) {
             e.printStackTrace();
@@ -100,7 +131,7 @@ public class Manager {
     }
 
     public Competitor searchCompetitorByNumber(int competitorNumber) {
-        // Delegate search to CompetitorList
+
         return competitorList.searchCompetitorByNumber(competitorNumber);
     }
         public static void main(String[] args) {
@@ -110,7 +141,10 @@ public class Manager {
         }
 
 
+    public ArrayList<Competitor> getCompetitors() {
+        return null;
     }
+}
 
 
 

@@ -1,23 +1,263 @@
 This is Final Competitor Report
 | Competitor Number  | Forename        | Surname        | Country  | Gender | Level | Age        | Average Score | Max Score | Min Score | Overall Score |
 |--------------------|-----------------|----------------|----------|--------|-------|----------|---------------|---------| --------------|
-| 100                | Ann            |  Sthen         | UK        | Female | Novice | 23         | 4.25       | 9          | 1          | 17.00      | 
-| 101                | George         |  Beth Shon     | UK        | Male   | Novice | 31         | 4.50       | 6          | 2          | 18.00      | 
-| 102                | Kaith          |  Andy Clos     | UK        | Female | Novice | 29         | 3.75       | 7          | 2          | 15.00      | 
-| 103                | Rinon          |  Grov          | US        | Male   | Novice | 25         | 3.50       | 7          | 1          | 14.00      | 
-| 104                | Mark           |  Do Leno       | UK        | Male   | Novice | 22         | 4.50       | 7          | 2          | 18.00      | 
-| 105                | Harry          |  Patrick       | UK        | Male   | Novice | 32         | 5.25       | 8          | 2          | 21.00      | 
-| 106                | Vicy           |  Mathew        | UK        | Male   | Novice | 33         | 5.50       | 9          | 2          | 22.00      | 
-| 107                | Monica         |  Loy           | US        | Female | Novice | 29         | 4.50       | 8          | 2          | 18.00      | 
-| 108                | Susan          |  Mathew        | US        | Female | Novice | 28         | 4.75       | 6          | 3          | 19.00      | 
-| 109                | Andy           |  Stov          | US        | Female | Novice | 22         | 5.75       | 9          | 2          | 23.00      | 
-| 110                | Mary           |  Francis       | UK        | Male   | Amateur | 27         | 7.00       | 9          | 6          | 28.00      | 
-| 111                | Jomon          |  Vicy          | UK        | Male   | Novice | 22         | 8.50       | 10         | 6          | 34.00      | 
-| 112                | Catherin       |  George        | UAE       | Male   | Expert | 20         | 2.75       | 4          | 1          | 11.00      | 
-| 113                | Aby            |  Mathew        | UK        | Male   | Amateur | 34         | 4.00       | 6          | 2          | 16.00      | 
-| 114                | Jojo           |  Mony          | UK        | Male   | Novice | 31         | 4.50       | 7          | 2          | 18.00      | 
-| 115                | Methen         |  George        | UK        | Male   | Expert | 30         | 6.50       | 8          | 4          | 26.00      | 
-| 116                | Scarlett       |  John          | UK        | Female | Novice | 25         | 4.50       | 6          | 3          | 18.00      | 
-| 117                | Patrick        |  Shanon        | US        | Male   | Amateur | 22         | 8.00       | 10         | 4          | 32.00      | 
-| 118                | Rod            |  Stod          | UK        | Novice | Male   | 26         | 5.00       | 9          | 2          | 20.00      | 
-| 119                | Lijo           |  Willams       | UK        | Male   | Expert | 28         | 5.25       | 8          | 2          | 21.00      | 
+Competitor number: 100
+ForeName: Ann
+surname:  Sthen
+Country: UK
+Level: Novice
+Gender: Female
+Age: 23
+Average score: 4.25
+Max score: 9
+Min score: 1
+Overall score: 17.0
+Scores: [5, 2, 1, 9]
+
+Competitor number: 101
+ForeName: George
+surname:  Beth Shon
+Country: UK
+Level: Novice
+Gender: Male
+Age: 31
+Average score: 4.5
+Max score: 6
+Min score: 2
+Overall score: 18.0
+Scores: [2, 6, 5, 5]
+
+Competitor number: 102
+ForeName: Kaith
+surname:  Andy Clos
+Country: UK
+Level: Novice
+Gender: Female
+Age: 29
+Average score: 3.75
+Max score: 7
+Min score: 2
+Overall score: 15.0
+Scores: [4, 7, 2, 2]
+
+Competitor number: 103
+ForeName: Rinon
+surname:  Grov
+Country: US
+Level: Novice
+Gender: Male
+Age: 25
+Average score: 3.5
+Max score: 7
+Min score: 1
+Overall score: 14.0
+Scores: [1, 1, 5, 7]
+
+Competitor number: 104
+ForeName: Mark
+surname:  Do Leno
+Country: UK
+Level: Novice
+Gender: Male
+Age: 22
+Average score: 4.5
+Max score: 7
+Min score: 2
+Overall score: 18.0
+Scores: [5, 7, 4, 2]
+
+Competitor number: 105
+ForeName: Harry
+surname:  Patrick
+Country: UK
+Level: Novice
+Gender: Male
+Age: 32
+Average score: 5.25
+Max score: 8
+Min score: 2
+Overall score: 21.0
+Scores: [2, 6, 5, 8]
+
+Competitor number: 106
+ForeName: Vicy
+surname:  Mathew
+Country: UK
+Level: Novice
+Gender: Male
+Age: 33
+Average score: 5.5
+Max score: 9
+Min score: 2
+Overall score: 22.0
+Scores: [6, 2, 9, 5]
+
+Competitor number: 107
+ForeName: Monica
+surname:  Loy
+Country: US
+Level: Novice
+Gender: Female
+Age: 29
+Average score: 4.5
+Max score: 8
+Min score: 2
+Overall score: 18.0
+Scores: [4, 4, 8, 2]
+
+Competitor number: 108
+ForeName: Susan
+surname:  Mathew
+Country: US
+Level: Novice
+Gender: Female
+Age: 28
+Average score: 4.75
+Max score: 6
+Min score: 3
+Overall score: 19.0
+Scores: [5, 6, 5, 3]
+
+Competitor number: 109
+ForeName: Andy
+surname:  Stov
+Country: US
+Level: Novice
+Gender: Female
+Age: 22
+Average score: 5.75
+Max score: 9
+Min score: 2
+Overall score: 23.0
+Scores: [6, 2, 9, 6]
+
+Competitor number: 110
+ForeName: Mary
+surname:  Francis
+Country: UK
+Level: Amateur
+Gender: Male
+Age: 27
+Average score: 7.0
+Max score: 9
+Min score: 6
+Overall score: 28.0
+Scores: [7, 9, 6, 6]
+
+Competitor number: 111
+ForeName: Jomon
+surname:  Vicy
+Country: UK
+Level: Novice
+Gender: Male
+Age: 22
+Average score: 8.5
+Max score: 10
+Min score: 6
+Overall score: 34.0
+Scores: [6, 9, 10, 9]
+
+Competitor number: 112
+ForeName: Catherin
+surname:  George
+Country: UAE
+Level: Expert
+Gender: Male
+Age: 20
+Average score: 2.75
+Max score: 4
+Min score: 1
+Overall score: 11.0
+Scores: [1, 4, 4, 2]
+
+Competitor number: 113
+ForeName: Aby
+surname:  Mathew
+Country: UK
+Level: Amateur
+Gender: Male
+Age: 34
+Average score: 4.0
+Max score: 6
+Min score: 2
+Overall score: 16.0
+Scores: [2, 3, 6, 5]
+
+Competitor number: 114
+ForeName: Jojo
+surname:  Mony
+Country: UK
+Level: Novice
+Gender: Male
+Age: 31
+Average score: 4.5
+Max score: 7
+Min score: 2
+Overall score: 18.0
+Scores: [2, 3, 6, 7]
+
+Competitor number: 115
+ForeName: Methen
+surname:  George
+Country: UK
+Level: Expert
+Gender: Male
+Age: 30
+Average score: 6.5
+Max score: 8
+Min score: 4
+Overall score: 26.0
+Scores: [4, 7, 7, 8]
+
+Competitor number: 116
+ForeName: Scarlett
+surname:  John
+Country: UK
+Level: Novice
+Gender: Female
+Age: 25
+Average score: 4.5
+Max score: 6
+Min score: 3
+Overall score: 18.0
+Scores: [3, 4, 6, 5]
+
+Competitor number: 117
+ForeName: Patrick
+surname:  Shanon
+Country: US
+Level: Amateur
+Gender: Male
+Age: 22
+Average score: 8.0
+Max score: 10
+Min score: 4
+Overall score: 32.0
+Scores: [4, 9, 9, 10]
+
+Competitor number: 118
+ForeName: Rod
+surname:  Stod
+Country: UK
+Level: Male
+Gender: Novice
+Age: 26
+Average score: 5.0
+Max score: 9
+Min score: 2
+Overall score: 20.0
+Scores: [5, 9, 2, 4]
+
+Competitor number: 119
+ForeName: Lijo
+surname:  Willams
+Country: UK
+Level: Expert
+Gender: Male
+Age: 28
+Average score: 5.25
+Max score: 8
+Min score: 2
+Overall score: 21.0
+Scores: [6, 2, 5, 8]
+
