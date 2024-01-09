@@ -18,12 +18,12 @@ class Main {
         Manager manager = new Manager();
         Competitor competitor;
 
-        // Test reading competitors from CSV
+        //  reading competitors from CSV
         manager.readCompetitorsFromFiles();
 
 
 
-        // Test generating a report
+        //  generating a report
         manager.generateFinalReportToFile();
 
         Scanner scanner = new Scanner(System.in);

@@ -96,7 +96,12 @@ public class GUI {
                     JTextField levelField = new JTextField(level, 10);
                     JTextField genderField = new JTextField(gender, 10);
                     JTextField ageField = new JTextField(String.valueOf(age), 10);
+                    JTextField score1Field = new JTextField(String.valueOf(competitor.getScores()[0]), 5);
+                    JTextField score2Field = new JTextField(String.valueOf(competitor.getScores()[1]), 5);
+                    JTextField score3Field = new JTextField(String.valueOf(competitor.getScores()[2]), 5);
+                    JTextField score4Field = new JTextField(String.valueOf(competitor.getScores()[3]), 5);
                     JPanel editPanel = new JPanel();
+
                     editPanel.add(new JLabel("Forename:"));
                     editPanel.add(forenameField);
                     editPanel.add(new JLabel("Surname:"));
@@ -109,11 +114,38 @@ public class GUI {
                     editPanel.add(genderField);
                     editPanel.add(new JLabel("Age:"));
                     editPanel.add(ageField);
+                    editPanel.add(new JLabel("Score 1:"));
+                    editPanel.add(score1Field);
+                    editPanel.add(new JLabel("Score 2:"));
+                    editPanel.add(score2Field);
+                    editPanel.add(new JLabel("Score 3:"));
+                    editPanel.add(score3Field);
+                    editPanel.add(new JLabel("Score 4:"));
+                    editPanel.add(score4Field);
                     editPanel.add(saveButton);
                     JFrame editFrame = new JFrame("Edit Competitor Details");
                     editFrame.add(editPanel);
                     editFrame.pack();
                     editFrame.setVisible(true);
+                    saveButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            // Update the competitor's scores
+                            int[] updatedScores = {
+                                    Integer.parseInt(score1Field.getText()),
+                                    Integer.parseInt(score2Field.getText()),
+                                    Integer.parseInt(score3Field.getText()),
+                                    Integer.parseInt(score4Field.getText())
+                            };
+
+                            competitor.setScores(updatedScores);
+
+                            // Add any additional code for saving the changes if needed
+
+                            // Close the edit frame
+                            editFrame.dispose();
+
+                        }
+                    });
                 }
             }
         });
@@ -223,12 +255,12 @@ public class GUI {
         });
         removeCompetitorButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Get the selected row index
+
                 int selectedRowIndex = table.getSelectedRow();
 
-                // Ensure a row is selected
+
                 if (selectedRowIndex != -1) {
-                    // Get the competitor number from the selected row
+
                     int competitorNumber = (int) table.getValueAt(selectedRowIndex, 0);
 
                     // Remove the competitor from your data source (e.g., ArrayList)
@@ -293,9 +325,9 @@ public class GUI {
                 // Create new competitor
                 Competitor newCompetitor = new Competitor(Competitornummber,forename, surname, country, level, Gender, age, scores);
 
-                // Add new competitor to manager
+
                 CompetitorList.addCompetitor(newCompetitor);
-                // Save competitor details to a text file
+
                 Manager.saveCompetitorDetailsToFile(newCompetitor);
             }
         });
@@ -305,3 +337,4 @@ public class GUI {
 
 
     }
+

@@ -28,7 +28,7 @@ public class Manager {
     }
 
 
-    // Inside your Manager class
+
     public void removeCompetitor(int competitorNumber) {
 
         for (Competitor competitor : CompetitorList.getCompetitors()) {

@@ -56,6 +56,7 @@ public  class Competitor {
         return this.age;
     }
 
+
     // Setters
     public void setCompetitorNumber(int competitorNumber) {
         this.competitorNumber = competitorNumber;
@@ -83,6 +84,9 @@ public  class Competitor {
 
     public void setAge(int age) {
         this.age = age;
+    }
+    public void setScores(int[] scores) {
+        this.scores = scores.clone();
     }
 
     // In the Competitor clas
