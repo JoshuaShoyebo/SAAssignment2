@@ -126,13 +126,13 @@ public class Manager {
             writer.write(highestScoreCompetitor.getFullDetails());
 
             writer.write("\n");
-            writer.write("Total Overall Score for all Competitor is : " + competitorList.getSumOfOverallScores());
+            writer.write("Total Overall Score for all Competitors is : " + competitorList.getSumOfOverallScores());
             writer.write("\n");
-            writer.write("Total Minimum Score for all Competitor is : " + competitorList.getMinimumOverallScore());
+            writer.write("Total Minimum Score for all Competitors is : " + competitorList.getMinimumOverallScore());
             writer.write("\n");
-            writer.write("Total Maximum Score for all Competitor is : " + competitorList.getMaximumOverallScore());
+            writer.write("Total Maximum Score for all Competitors is : " + competitorList.getMaximumOverallScore());
             writer.write("\n");
-            writer.write("Total Average Score for all Competitor is : " + competitorList.getAverageOverallScore());
+            writer.write("Total Average Score for all Competitors is : " + competitorList.getAverageOverallScore());
 
 
 
