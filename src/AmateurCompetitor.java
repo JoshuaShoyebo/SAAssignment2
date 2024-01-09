@@ -17,9 +17,13 @@ public class AmateurCompetitor extends Competitor {
 
     @Override
     public double getOverallScore() {
-
-        return 0;
+        int[] scores = getScores();        int sum = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum += scores[i];
+        }
+        return (double) sum / scores.length;
     }
+
 
     public String getFullDetailss() {
         StringBuilder details = new StringBuilder();

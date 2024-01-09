@@ -156,7 +156,7 @@ public abstract class Competitor {
 
     public double getAverageScoreWithoutExtremes() {
         if (scores.length < 3) {
-            return getAverageScore(); // Not enough scores to disregard extremes
+            return getAverageScore();
         }
 
         int sum = 0;
